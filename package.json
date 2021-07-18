@@ -1,0 +1,33 @@
+{
+  "name": "react-pixi-viewport",
+  "version": "1.0.0",
+  "description": "viewport using React PIXI and pixi-viewport",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@inlet/react-pixi": "6.0.2",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "pixi-viewport": "4.17.1",
+    "pixi.js": "^5.3.3",
+    "pixijs-grid": "^0.4.1",
+    "react": "17.0.0",
+    "react-dom": "17.0.0",
+    "react-scripts": "3.4.3"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+  <title>PIXI JS App</title>
+</head>
+
+<body style="margin: 0px;">
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"></div>
+  <!-- <canvas id="canvas"></canvas> -->
+</body>
+<!-- <script>
+
+  requestAnimationFrame(mainLoop);
+
+  const canvas = document.getElementById('canvas')
+
+  console.log(canvas)
+  const ctx = canvas.getContext("2d");
+  console.log(ctx)
+
+  const size = 138;
+  const grids = createPatterns(size, 4, "#222", "#EEE", "#69B", "#246");
+  var zoom = 1;
+  var zoomTarget = 16;
+  var zoomC = 0;
+  var gridType = 0;
+  var origin = { x: ctx.canvas.width / 2, y: ctx.canvas.height / 2 };
+  const scales = [0, 0, 0];
+
+  function createPatterns(size, lineWidth, color1, color2, color3, color4) {
+    function grid(col1, col2) {
+      ctx.fillStyle = col1;
+      ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = col2;
+      ctx.fillRect(0, 0, size, lineWidth);
+      ctx.fillRect(0, 0, lineWidth, size);
+    }
+    function grid2(col1, col2) {
+      ctx.fillStyle = col1;
+      ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = col2;
+      ctx.fillRect(0, 0, size / 2, size / 2);
+      ctx.fillRect(size / 2, size / 2, size / 2, size / 2);
+
+    }
+    const patterns = [];
+    const ctx = Object.assign(document.createElement("canvas"), { width: size, height: size }).getContext("2d");
+    grid(color1, color2)
+    patterns[0] = ctx.createPattern(ctx.canvas, "repeat");
+    grid2(color3, color4)
+    patterns[1] = ctx.createPattern(ctx.canvas, "repeat");
+    return patterns;
+  }
+
+
+  function drawGrid(ctx, grid, zoom, origin, smooth = true) {
+    function zoomAlpha(logScale) {
+      const t = logScale % 3;
+      return t < 1 ? t % 1 : t > 2 ? 1 - (t - 2) % 1 : 1;
+    }
+    function fillScale(scale) {
+      ctx.setTransform(scale / 8, 0, 0, scale / 8, origin.x, origin.y);
+      ctx.globalAlpha = zoomAlpha(Math.log2(scale));
+      ctx.fill();
+    }
+    ctx.fillStyle = grid;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.imageSmoothingEnabled = smooth;
+    ctx.beginPath();
+    ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.globalAlpha = 1;
+    const l2 = Math.log2(zoom);
+
+    scales[0] = 2 ** ((l2 + 122) % 3); //  zoom limit 1 / (2 ** 122) (well beyond number precision)
+    scales[1] = 2 ** ((l2 + 123) % 3);
+    scales[2] = 2 ** ((l2 + 124) % 3);
+    scales.sort((a, b) => a - b);
+
+    fillScale(scales[0]);
+    fillScale(scales[1]);
+    fillScale(scales[2]);
+    ctx.globalAlpha = 1;
+  }
+
+  function mainLoop() {
+    if (innerWidth !== ctx.canvas.width || innerHeight !== ctx.canvas.height) {
+      origin.x = (ctx.canvas.width = innerWidth) / 2;
+      origin.y = (ctx.canvas.height = innerHeight) / 2;
+      zoomTarget = 16;
+      zoom = 1;
+    }
+    zoomC += (zoomTarget - zoom) * 0.3;
+    zoomC *= 0.02;
+    zoom += zoomC;
+    if (gridType === 0) {
+      drawGrid(ctx, grids[0], zoom, origin);
+    } else {
+      drawGrid(ctx, grids[1], zoom, origin, false);
+    }
+    requestAnimationFrame(mainLoop);
+  }
+  zoomIn.addEventListener("click", () => zoomTarget *= 2);
+  zoomOut.addEventListener("click", () => zoomTarget *= 1 / 2);
+  toggle.addEventListener("click", () => gridType = (gridType + 1) % 2);
+
+</script> -->
+
+</html>
